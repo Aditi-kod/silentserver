@@ -37,7 +37,7 @@ The server should generate a session and log an OTP to the console.
 ```bash
 curl -X POST http://localhost:3000/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"user@test.com","password":"password123"}'
+  -d '{"email":"<YOUR_EMAIL@example.com>","password":"password123"}'
 ```
 **Expected Outcome:**
 - Server logs the OTP (e.g., `[OTP] Session abc12345 generated`).
@@ -94,6 +94,8 @@ After fixing the bugs, you should be able to run the following sequence successf
 2.  **Verify OTP**: Receive a session cookie (`session_token`).
 3.  **Get Token**: Exchange the session cookie for a JWT (`access_token`).
 4.  **Access Protected Route**: Use the JWT to get a 200 OK response with user details and a **unique Success Flag**.
+
+**Important**: You must use **your own email address** when testing the login flow. The success flag is generated based on the email you use.
 
 ## Debugging Tips
 
