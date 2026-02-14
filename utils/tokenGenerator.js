@@ -1,3 +1,6 @@
+const crypto = require("crypto");
+const { getSecretFromDB } = require("./mockDb");
+
 const generateToken = async (email) => {
     try {
         const secret = await getSecretFromDB();
@@ -11,3 +14,5 @@ const generateToken = async (email) => {
         throw error;
     }
 };
+
+module.exports = { generateToken };
